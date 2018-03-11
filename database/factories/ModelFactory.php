@@ -11,9 +11,14 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\User::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->email,
+        "id" => $faker->numberBetween($min = 1, $max = 9000),
+        "first_name" => $faker->first_name,
+        "last_name" => $faker->last_name,
+        "username" => $faker->username,
+        "email" => $faker->email,
+        "role" => "admin",
+        "profile_pic" => $faker->profile_pic
     ];
 });

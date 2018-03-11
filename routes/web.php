@@ -11,6 +11,15 @@
 |
 */
 
-$router->get('/', function () use ($router) {
+$router->get("/", function () use ($router) {
     return $router->app->version();
 });
+
+/**
+ * Routes for login and signup
+ */
+$router->group(
+    ["prefix" => "api/"], function ($router) {
+        $router->post("login/", "UserController@authenticate");
+    }
+);
